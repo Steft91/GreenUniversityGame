@@ -1,0 +1,47 @@
+[
+  {
+    "id": "botella_extra",
+    "nombre": "Botella plástica",
+    "sprite": "botella_plastica",
+    "accion": "plastico",
+    "puntos": 20,
+    "posicion": { "x": 150, "y": 200 },
+    "explicacion": "Las botellas plásticas deben ir en el contenedor de reciclables."
+  },
+  {
+    "id": "bateria_extra",
+    "nombre": "Batería",
+    "sprite": "bateria",
+    "accion": "peligroso",
+    "puntos": 20,
+    "posicion": { "x": 400, "y": 350 },
+    "explicacion": "Las baterías son residuos peligrosos y no deben ir a la basura común."
+  },
+  {
+    "id": "fuga_agua",
+    "nombre": "Fuga de agua",
+    "sprite": "fuga_agua",
+    "accion": "reportar",
+    "puntos": 20,
+    "posicion": { "x": 600, "y": 180 },
+    "explicacion": "Las fugas deben reportarse inmediatamente para evitar desperdicio de agua."
+  },
+  {
+    "id": "luz_encendida",
+    "nombre": "Luz encendida sin uso",
+    "sprite": "luz_encendida",
+    "accion": "apagar",
+    "puntos": 20,
+    "posicion": { "x": 250, "y": 420 },
+    "explicacion": "Apagar luces en espacios vacíos reduce significativamente el consumo eléctrico."
+  },
+  {
+    "id": "organico_extra",
+    "nombre": "Residuo orgánico mal ubicado",
+    "sprite": "resto_comida",
+    "accion": "organico",
+    "puntos": 20,
+    "posicion": { "x": 520, "y": 300 },
+    "explicacion": "Los residuos orgánicos deben ir al contenedor correspondiente para poder compostarse."
+  }
+]

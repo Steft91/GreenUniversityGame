@@ -1,0 +1,121 @@
+[
+  {
+    "id": "par_01",
+    "problema": {
+      "id": "prob_residuos",
+      "titulo": "Residuos mezclados",
+      "descripcion": "Residuos orgánicos mezclados con papel y envases, reduciendo el aprovechamiento del reciclaje.",
+      "icono": "icono_residuos"
+    },
+    "solucion": {
+      "id": "sol_residuos",
+      "titulo": "Separación en origen",
+      "descripcion": "Separación con estaciones diferenciadas y capacitación al personal y estudiantes.",
+      "icono": "icono_residuos"
+    },
+    "puntos": 20,
+    "explicacion": "La separación en origen es la base del reciclaje efectivo. Sin ella, los materiales se contaminan y pierden valor."
+  },
+  {
+    "id": "par_02",
+    "problema": {
+      "id": "prob_energia",
+      "titulo": "Aulas con luces encendidas",
+      "descripcion": "Iluminación encendida en aulas aunque no están en uso, aumentando el consumo eléctrico.",
+      "icono": "icono_energia"
+    },
+    "solucion": {
+      "id": "sol_energia",
+      "titulo": "Sensores y LED",
+      "descripcion": "Sensores de presencia y reemplazo de luminarias por tecnología LED.",
+      "icono": "icono_energia"
+    },
+    "puntos": 20,
+    "explicacion": "Los sensores de movimiento y las luces LED pueden reducir el consumo energético de iluminación hasta un 80%."
+  },
+  {
+    "id": "par_03",
+    "problema": {
+      "id": "prob_movilidad",
+      "titulo": "Movilidad contaminante",
+      "descripcion": "Dependencia del automóvil particular, generando congestión y emisiones de CO₂.",
+      "icono": "icono_movilidad"
+    },
+    "solucion": {
+      "id": "sol_movilidad",
+      "titulo": "Movilidad sostenible",
+      "descripcion": "Plan de movilidad con ciclovías, rutas peatonales y transporte compartido.",
+      "icono": "icono_movilidad"
+    },
+    "puntos": 20,
+    "explicacion": "La movilidad sostenible no solo reduce emisiones, también mejora la salud y el ambiente del campus."
+  },
+  {
+    "id": "par_04",
+    "problema": {
+      "id": "prob_agua",
+      "titulo": "Desperdicio de agua",
+      "descripcion": "Aumento del consumo por fugas no detectadas y sanitarios ineficientes.",
+      "icono": "icono_agua"
+    },
+    "solucion": {
+      "id": "sol_agua",
+      "titulo": "Ahorro hídrico",
+      "descripcion": "Monitoreo de fugas e instalación de dispositivos de ahorro hídrico.",
+      "icono": "icono_agua"
+    },
+    "puntos": 20,
+    "explicacion": "Una fuga pequeña puede desperdiciar miles de litros al mes. Los dispositivos ahorradores reducen hasta un 50% el consumo."
+  },
+  {
+    "id": "par_05",
+    "problema": {
+      "id": "prob_educacion",
+      "titulo": "Campañas esporádicas",
+      "descripcion": "Campañas ambientales aisladas que no generan cambios permanentes en la comunidad.",
+      "icono": "icono_educacion"
+    },
+    "solucion": {
+      "id": "sol_educacion",
+      "titulo": "Educación continua",
+      "descripcion": "Educación ambiental continua mediante cursos, señalética y actividades institucionales.",
+      "icono": "icono_educacion"
+    },
+    "puntos": 20,
+    "explicacion": "La sostenibilidad requiere cambios culturales permanentes, no solo eventos puntuales."
+  },
+  {
+    "id": "par_06",
+    "problema": {
+      "id": "prob_raee",
+      "titulo": "Gestión RAEE",
+      "descripcion": "Generación de residuos electrónicos sin protocolo de disposición segura.",
+      "icono": "icono_raee"
+    },
+    "solucion": {
+      "id": "sol_raee",
+      "titulo": "Recolección diferenciada",
+      "descripcion": "Sistema de recolección de RAEE con gestores autorizados.",
+      "icono": "icono_raee"
+    },
+    "puntos": 25,
+    "explicacion": "Los residuos electrónicos contienen metales pesados y toxinas. Solo gestores certificados pueden manejarlos de forma segura."
+  },
+  {
+    "id": "par_07",
+    "problema": {
+      "id": "prob_paisajismo",
+      "titulo": "Áreas verdes con alto consumo",
+      "descripcion": "Áreas verdes con plantas que consumen mucha agua y no se adaptan al clima local.",
+      "icono": "icono_paisajismo"
+    },
+    "solucion": {
+      "id": "sol_paisajismo",
+      "titulo": "Especies nativas",
+      "descripcion": "Paisajismo con especies nativas y sistemas de riego eficiente.",
+      "icono": "icono_paisajismo"
+    },
+    "puntos": 25,
+    "explicacion": "Las especies nativas están adaptadas al clima local y requieren mucho menos agua y mantenimiento."
+  }
+]

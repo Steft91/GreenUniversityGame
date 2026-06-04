@@ -1,0 +1,17 @@
+{
+  "name": "green-university-game",
+  "version": "1.0.0",
+  "description": "Campus Verde: Misión Green University - Videojuego educativo de sostenibilidad",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.60.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

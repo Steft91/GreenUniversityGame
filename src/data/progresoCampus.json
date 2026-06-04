@@ -1,0 +1,34 @@
+[
+  {
+    "estado": "aprendiz_ecologico",
+    "porcentajeMinimo": 0,
+    "porcentajeMaximo": 40,
+    "titulo": "Aprendiz Ecológico",
+    "mensaje": "Estás comenzando tu camino hacia la sostenibilidad. ¡Sigue aprendiendo!",
+    "color": "#c0392b"
+  },
+  {
+    "estado": "agente_verde",
+    "porcentajeMinimo": 41,
+    "porcentajeMaximo": 70,
+    "titulo": "Agente Verde",
+    "mensaje": "Vas por buen camino. Tu campus empieza a ver cambios positivos.",
+    "color": "#e67e22"
+  },
+  {
+    "estado": "lider_sostenible",
+    "porcentajeMinimo": 71,
+    "porcentajeMaximo": 90,
+    "titulo": "Líder Sostenible",
+    "mensaje": "¡Excelente desempeño! Eres un referente de sostenibilidad en el campus.",
+    "color": "#27ae60"
+  },
+  {
+    "estado": "green_master",
+    "porcentajeMinimo": 91,
+    "porcentajeMaximo": 100,
+    "titulo": "Green Master",
+    "mensaje": "¡Increíble! Tu campus alcanzó el máximo reconocimiento como Green University.",
+    "color": "#2ecc71"
+  }
+]
