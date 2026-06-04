@@ -1,0 +1,107 @@
+[
+  {
+    "id": "solar",
+    "recurso": {
+      "id": "sol",
+      "nombre": "Sol",
+      "sprite": "sol"
+    },
+    "tecnologia": {
+      "id": "panel_solar",
+      "nombre": "Panel Solar",
+      "sprite": "panel_solar"
+    },
+    "puntos": 15,
+    "explicacion": "La energía solar capta la radiación del sol mediante paneles fotovoltaicos para generar electricidad."
+  },
+  {
+    "id": "eolica",
+    "recurso": {
+      "id": "viento",
+      "nombre": "Viento",
+      "sprite": "viento"
+    },
+    "tecnologia": {
+      "id": "aerogenerador",
+      "nombre": "Aerogenerador",
+      "sprite": "aerogenerador"
+    },
+    "puntos": 15,
+    "explicacion": "La energía eólica convierte la fuerza del viento en electricidad mediante aerogeneradores."
+  },
+  {
+    "id": "hidraulica",
+    "recurso": {
+      "id": "agua_corriente",
+      "nombre": "Agua en movimiento",
+      "sprite": "agua_corriente"
+    },
+    "tecnologia": {
+      "id": "represa",
+      "nombre": "Represa hidroeléctrica",
+      "sprite": "represa"
+    },
+    "puntos": 15,
+    "explicacion": "La energía hidroeléctrica aprovecha el movimiento del agua para mover turbinas y generar electricidad."
+  },
+  {
+    "id": "biomasa",
+    "recurso": {
+      "id": "biomasa",
+      "nombre": "Residuos orgánicos",
+      "sprite": "biomasa"
+    },
+    "tecnologia": {
+      "id": "planta_biomasa",
+      "nombre": "Planta de biomasa",
+      "sprite": "planta_biomasa"
+    },
+    "puntos": 20,
+    "explicacion": "La biomasa convierte materia orgánica en energía mediante combustión o biogás."
+  },
+  {
+    "id": "geotermica",
+    "recurso": {
+      "id": "vapor_geotermico",
+      "nombre": "Vapor terrestre",
+      "sprite": "vapor_geotermico"
+    },
+    "tecnologia": {
+      "id": "planta_geotermica",
+      "nombre": "Planta geotérmica",
+      "sprite": "planta_geotermica"
+    },
+    "puntos": 20,
+    "explicacion": "La energía geotérmica usa el calor interno de la Tierra para generar electricidad."
+  },
+  {
+    "id": "mareomotriz",
+    "recurso": {
+      "id": "marea",
+      "nombre": "Marea",
+      "sprite": "marea"
+    },
+    "tecnologia": {
+      "id": "sistema_mareomotriz",
+      "nombre": "Sistema mareomotriz",
+      "sprite": "sistema_mareomotriz"
+    },
+    "puntos": 20,
+    "explicacion": "La energía mareomotriz aprovecha el movimiento de las mareas para producir electricidad."
+  },
+  {
+    "id": "undimotriz",
+    "recurso": {
+      "id": "olas",
+      "nombre": "Olas",
+      "sprite": "olas"
+    },
+    "tecnologia": {
+      "id": "sistema_undimotriz",
+      "nombre": "Sistema undimotriz",
+      "sprite": "sistema_undimotriz"
+    },
+    "puntos": 20,
+    "explicacion": "La energía undimotriz aprovecha el movimiento de las olas para generar electricidad."
+  }
+]
