@@ -1,0 +1,74 @@
+[
+  {
+    "id": "botella_plastica",
+    "nombre": "Botella plástica",
+    "sprite": "botella_plastica",
+    "categoriaCorrecta": "plastico",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! Las botellas plásticas van al contenedor de reciclables.",
+    "feedbackError": "Las botellas plásticas deben ir en el contenedor de plástico/reciclable."
+  },
+  {
+    "id": "papel",
+    "nombre": "Papel arrugado",
+    "sprite": "papel",
+    "categoriaCorrecta": "papel_carton",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! El papel limpio puede reciclarse.",
+    "feedbackError": "El papel va en el contenedor de papel y cartón."
+  },
+  {
+    "id": "cascara_banano",
+    "nombre": "Cáscara de banano",
+    "sprite": "cascara_banano",
+    "categoriaCorrecta": "organico",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! Los restos orgánicos pueden convertirse en compost.",
+    "feedbackError": "Las cáscaras de fruta son residuos orgánicos."
+  },
+  {
+    "id": "lata",
+    "nombre": "Lata de aluminio",
+    "sprite": "lata",
+    "categoriaCorrecta": "plastico",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! Las latas son reciclables.",
+    "feedbackError": "Las latas van en el contenedor de reciclables."
+  },
+  {
+    "id": "vidrio",
+    "nombre": "Botella de vidrio",
+    "sprite": "vidrio",
+    "categoriaCorrecta": "vidrio",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! El vidrio tiene su propio contenedor.",
+    "feedbackError": "El vidrio debe separarse en su propio contenedor."
+  },
+  {
+    "id": "bateria",
+    "nombre": "Batería usada",
+    "sprite": "bateria",
+    "categoriaCorrecta": "peligroso",
+    "puntos": 15,
+    "feedbackCorrecto": "¡Correcto! Las baterías son residuos peligrosos y necesitan manejo especial.",
+    "feedbackError": "¡Cuidado! Las baterías contienen sustancias tóxicas. Van en residuos peligrosos."
+  },
+  {
+    "id": "carton",
+    "nombre": "Caja de cartón",
+    "sprite": "carton",
+    "categoriaCorrecta": "papel_carton",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! El cartón limpio es reciclable.",
+    "feedbackError": "El cartón va en el contenedor de papel y cartón."
+  },
+  {
+    "id": "resto_comida",
+    "nombre": "Resto de comida",
+    "sprite": "resto_comida",
+    "categoriaCorrecta": "organico",
+    "puntos": 10,
+    "feedbackCorrecto": "¡Correcto! Los restos de comida son residuos orgánicos.",
+    "feedbackError": "Los restos de comida son orgánicos y pueden compostarse."
+  }
+]
