@@ -3,13 +3,13 @@
     "id": "par_01",
     "problema": {
       "id": "prob_residuos",
-      "titulo": "Residuos mezclados",
+      "titulo": "Orgánicos mezclados con reciclables",
       "descripcion": "Residuos orgánicos mezclados con papel y envases, reduciendo el aprovechamiento del reciclaje.",
       "icono": "icono_residuos"
     },
     "solucion": {
       "id": "sol_residuos",
-      "titulo": "Separación en origen",
+      "titulo": "Estaciones separadas y capacitación",
       "descripcion": "Separación con estaciones diferenciadas y capacitación al personal y estudiantes.",
       "icono": "icono_residuos"
     },
@@ -20,13 +20,13 @@
     "id": "par_02",
     "problema": {
       "id": "prob_energia",
-      "titulo": "Aulas con luces encendidas",
+      "titulo": "Luces encendidas en aulas vacías",
       "descripcion": "Iluminación encendida en aulas aunque no están en uso, aumentando el consumo eléctrico.",
       "icono": "icono_energia"
     },
     "solucion": {
       "id": "sol_energia",
-      "titulo": "Sensores y LED",
+      "titulo": "Sensores de presencia y LED",
       "descripcion": "Sensores de presencia y reemplazo de luminarias por tecnología LED.",
       "icono": "icono_energia"
     },
@@ -37,13 +37,13 @@
     "id": "par_03",
     "problema": {
       "id": "prob_movilidad",
-      "titulo": "Movilidad contaminante",
+      "titulo": "Autos particulares saturan el campus",
       "descripcion": "Dependencia del automóvil particular, generando congestión y emisiones de CO₂.",
       "icono": "icono_movilidad"
     },
     "solucion": {
       "id": "sol_movilidad",
-      "titulo": "Movilidad sostenible",
+      "titulo": "Ciclovías y transporte compartido",
       "descripcion": "Plan de movilidad con ciclovías, rutas peatonales y transporte compartido.",
       "icono": "icono_movilidad"
     },
@@ -54,13 +54,13 @@
     "id": "par_04",
     "problema": {
       "id": "prob_agua",
-      "titulo": "Desperdicio de agua",
+      "titulo": "Fugas y sanitarios ineficientes",
       "descripcion": "Aumento del consumo por fugas no detectadas y sanitarios ineficientes.",
       "icono": "icono_agua"
     },
     "solucion": {
       "id": "sol_agua",
-      "titulo": "Ahorro hídrico",
+      "titulo": "Monitoreo de fugas y ahorradores",
       "descripcion": "Monitoreo de fugas e instalación de dispositivos de ahorro hídrico.",
       "icono": "icono_agua"
     },
@@ -71,13 +71,13 @@
     "id": "par_05",
     "problema": {
       "id": "prob_educacion",
-      "titulo": "Campañas esporádicas",
+      "titulo": "Campañas ambientales sin seguimiento",
       "descripcion": "Campañas ambientales aisladas que no generan cambios permanentes en la comunidad.",
       "icono": "icono_educacion"
     },
     "solucion": {
       "id": "sol_educacion",
-      "titulo": "Educación continua",
+      "titulo": "Cursos, señalética y actividades",
       "descripcion": "Educación ambiental continua mediante cursos, señalética y actividades institucionales.",
       "icono": "icono_educacion"
     },
@@ -88,13 +88,13 @@
     "id": "par_06",
     "problema": {
       "id": "prob_raee",
-      "titulo": "Gestión RAEE",
+      "titulo": "Electrónicos sin manejo seguro",
       "descripcion": "Generación de residuos electrónicos sin protocolo de disposición segura.",
       "icono": "icono_raee"
     },
     "solucion": {
       "id": "sol_raee",
-      "titulo": "Recolección diferenciada",
+      "titulo": "Puntos RAEE con gestores autorizados",
       "descripcion": "Sistema de recolección de RAEE con gestores autorizados.",
       "icono": "icono_raee"
     },
@@ -105,13 +105,13 @@
     "id": "par_07",
     "problema": {
       "id": "prob_paisajismo",
-      "titulo": "Áreas verdes con alto consumo",
+      "titulo": "Jardines con especies de alto consumo",
       "descripcion": "Áreas verdes con plantas que consumen mucha agua y no se adaptan al clima local.",
       "icono": "icono_paisajismo"
     },
     "solucion": {
       "id": "sol_paisajismo",
-      "titulo": "Especies nativas",
+      "titulo": "Especies nativas y riego eficiente",
       "descripcion": "Paisajismo con especies nativas y sistemas de riego eficiente.",
       "icono": "icono_paisajismo"
     },

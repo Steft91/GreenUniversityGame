@@ -87,6 +87,21 @@ export default class MenuPrincipal extends Phaser.Scene {
       this.mostrarCreditos();
     });
 
+    // --- ATAJOS TEMPORALES DE PRUEBA ---
+    this.add.text(W / 2, H - 54, 'Atajos de prueba', {
+      fontSize: '10px',
+      fontFamily: 'Arial, sans-serif',
+      color: '#a8e6a3',
+      fontStyle: 'italic'
+    }).setOrigin(0.5);
+
+    const datosPrueba = { puntaje: 250, vidas: 3, indiceVerde: 50 };
+    this.crearBotonDebug(170, H - 26, 'Océano', () => this.scene.start('Nivel1_Oceano', { puntaje: 0, vidas: 3, indiceVerde: 0 }));
+    this.crearBotonDebug(310, H - 26, 'Parque', () => this.scene.start('Nivel1_Parque', { puntaje: 60, vidas: 3, indiceVerde: 20 }));
+    this.crearBotonDebug(450, H - 26, 'Energías', () => this.scene.start('Nivel2_EnergiasRenovables', datosPrueba));
+    this.crearBotonDebug(590, H - 26, 'Cartas', () => this.scene.start('Nivel3_ProblemaSolucion', datosPrueba));
+    this.crearBotonDebug(730, H - 26, 'Reto', () => this.scene.start('NivelExtra_FindAndSort', datosPrueba));
+
     // --- VERSIÓN ---
     this.add.text(W - 10, H - 10, 'v1.0', {
       fontSize: '11px',
@@ -101,6 +116,39 @@ export default class MenuPrincipal extends Phaser.Scene {
       duration: 800,
       ease: 'Power2'
     });
+  }
+
+  crearBotonDebug(x, y, texto, callback) {
+    const ancho = 112;
+    const alto = 28;
+
+    const bg = this.add.graphics();
+    bg.fillStyle(0x111827, 0.82);
+    bg.fillRoundedRect(x - ancho / 2, y - alto / 2, ancho, alto, 7);
+    bg.lineStyle(1, 0x2ecc71, 0.55);
+    bg.strokeRoundedRect(x - ancho / 2, y - alto / 2, ancho, alto, 7);
+
+    const label = this.add.text(x, y, texto, {
+      fontSize: '11px',
+      fontFamily: 'Arial, sans-serif',
+      color: '#ffffff',
+      fontStyle: 'bold'
+    }).setOrigin(0.5);
+
+    const zona = this.add.zone(x, y, ancho, alto).setInteractive({ useHandCursor: true });
+    zona.on('pointerover', () => {
+      bg.clear();
+      bg.fillStyle(0x1e8449, 0.95);
+      bg.fillRoundedRect(x - ancho / 2, y - alto / 2, ancho, alto, 7);
+    });
+    zona.on('pointerout', () => {
+      bg.clear();
+      bg.fillStyle(0x111827, 0.82);
+      bg.fillRoundedRect(x - ancho / 2, y - alto / 2, ancho, alto, 7);
+      bg.lineStyle(1, 0x2ecc71, 0.55);
+      bg.strokeRoundedRect(x - ancho / 2, y - alto / 2, ancho, alto, 7);
+    });
+    zona.on('pointerdown', callback);
   }
 
   dibujarLogoInstitucional(W) {
@@ -176,18 +224,18 @@ export default class MenuPrincipal extends Phaser.Scene {
 
     const instrucciones = [
       '🌿 Nivel 1 — Océano y Parque',
-      '   Arrastra cada residuo al basurero correcto.',
+      '   Clasifica residuos en reciclables, vidrio, orgánico, papel/cartón o peligroso.',
       '   Tienes 3 vidas. Cada error te quita 1.',
       '',
       '⚡ Nivel 2 — Energías Renovables',
-      '   Arrastra el recurso natural a su tecnología.',
+      '   Arrastra cada recurso natural a la tecnología que lo aprovecha.',
       '',
       '🧩 Nivel 3 — Problema y Solución',
-      '   Encuentra los pares de cartas correctos.',
+      '   Las cartas se muestran y debes elegir un problema y su solución.',
       '',
       '🎯 Nivel Extra (opcional)',
-      '   Encuentra y clasifica 5 objetos a tiempo.',
-      '   Si lo logras, ¡duplicas tu puntaje!'
+      '   Reconoce departamentos arrastrando escudos a sus nombres.',
+      '   Tienes 40 segundos. Cada error resta 3 segundos.'
     ];
 
     instrucciones.forEach((linea, i) => {

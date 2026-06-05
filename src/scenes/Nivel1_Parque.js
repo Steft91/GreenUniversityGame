@@ -226,7 +226,7 @@ export default class Nivel1_Parque extends Phaser.Scene {
       });
 
       sprite.on('pointerdown', (pointer) => {
-        if (this.popupActivo || this.nivelTerminado) return;
+        if (this.nivelTerminado) return;
         this.ocultarTooltip();
         this.tweens.killTweensOf(sprite);
         sprite.estaArrastrado  = true;
@@ -408,7 +408,11 @@ export default class Nivel1_Parque extends Phaser.Scene {
   // POPUP DE FEEDBACK
   // ═══════════════════════════════════════════════════════════════════════════
   mostrarFeedback(correcto, mensaje, x, y) {
-    if (this.popupActivo) return;
+    if (this.feedbackActual) {
+      this.feedbackActual.bg.destroy();
+      this.feedbackActual.txt.destroy();
+      this.feedbackActual = null;
+    }
     this.popupActivo = true;
 
     const color  = correcto ? '#27ae60' : '#e74c3c';
@@ -430,11 +434,14 @@ export default class Nivel1_Parque extends Phaser.Scene {
       fontSize: '13px', fontFamily: 'Arial', color: '#ffffff',
       align: 'center', wordWrap: { width: ancho - 20 }
     }).setOrigin(0.5);
+    this.feedbackActual = { bg, txt };
 
     // Auto-cerrar
     this.time.delayedCall(2000, () => {
+      if (this.feedbackActual?.bg !== bg) return;
       bg.destroy();
       txt.destroy();
+      this.feedbackActual = null;
       this.popupActivo = false;
     });
   }

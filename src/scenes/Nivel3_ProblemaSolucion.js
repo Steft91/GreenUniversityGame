@@ -13,7 +13,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
     this.cartasSeleccionadas = [];
     this.paresEncontrados = 0;
     this.paresNivel = cartasData.slice(0, 4);
-    this.bloqueado = false;
+    this.bloqueado = true;
     this.nivelTerminado = false;
   }
 
@@ -159,6 +159,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
       datos,
       volteada: false,
       emparejada: false,
+      marcoSeleccion: null,
       elementosFrente: []
     };
 
@@ -169,6 +170,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
     const img = this.add.image(x, y, 'carta_reverso');
     img.setDisplaySize(130, 230);
     img.setInteractive({ useHandCursor: true });
+    img.escalaOriginal = { x: img.scaleX, y: img.scaleY };
 
     carta.img = img;
     carta.sombra = sombra;
@@ -179,7 +181,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
   }
 
   seleccionarCarta(carta) {
-    if (this.bloqueado || this.nivelTerminado || carta.volteada || carta.emparejada) return;
+    if (this.bloqueado || this.nivelTerminado || !carta.volteada || carta.emparejada) return;
 
     const yaHayMismoTipo = this.cartasSeleccionadas.some(sel => sel.datos.tipo === carta.datos.tipo);
     if (yaHayMismoTipo) {
@@ -187,12 +189,37 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
       return;
     }
 
-    this.voltearCarta(carta, true);
+    this.marcarSeleccion(carta);
     this.cartasSeleccionadas.push(carta);
 
     if (this.cartasSeleccionadas.length === 2) {
       this.evaluarSeleccion();
     }
+  }
+
+  animarVolteoInicial() {
+    this.cartas.forEach((carta, i) => {
+      this.time.delayedCall(i * 90, () => {
+        this.tweens.add({
+          targets: carta.img,
+          scaleX: 0,
+          duration: 120,
+          ease: 'Sine.easeIn',
+          onComplete: () => {
+            this.voltearCarta(carta, true);
+            this.tweens.add({
+              targets: carta.img,
+              scaleX: carta.img.escalaOriginal.x,
+              duration: 140,
+              ease: 'Sine.easeOut',
+              onComplete: () => {
+                if (i === this.cartas.length - 1) this.bloqueado = false;
+              }
+            });
+          }
+        });
+      });
+    });
   }
 
   voltearCarta(carta, mostrarFrente) {
@@ -208,31 +235,45 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
 
     const { x, y } = carta.img;
 
-    const titulo = this.add.text(x, y - 12, carta.datos.titulo, {
-      fontSize: '13px',
+    const titulo = this.add.text(x, y + 10, carta.datos.titulo, {
+      fontSize: '10px',
       fontFamily: 'Arial',
       color: '#17202a',
       fontStyle: 'bold',
       align: 'center',
-      lineSpacing: 2,
-      wordWrap: { width: 106 }
+      lineSpacing: 1,
+      wordWrap: { width: 88 }
     }).setOrigin(0.5);
 
-    const descripcion = this.add.text(x, y + 66, this.recortarTexto(carta.datos.descripcion, 94), {
-      fontSize: '9px',
-      fontFamily: 'Arial',
-      color: '#2c3e50',
-      align: 'center',
-      lineSpacing: 2,
-      wordWrap: { width: 106 }
-    }).setOrigin(0.5);
-
-    carta.elementosFrente.push(titulo, descripcion);
+    carta.elementosFrente.push(titulo);
   }
 
   recortarTexto(texto, max) {
     if (texto.length <= max) return texto;
     return `${texto.slice(0, max - 3).trim()}...`;
+  }
+
+  marcarSeleccion(carta) {
+    this.quitarMarcoSeleccion(carta);
+
+    const g = this.add.graphics();
+    g.lineStyle(4, 0xf1c40f, 0.95);
+    g.strokeRoundedRect(carta.img.x - 69, carta.img.y - 116, 138, 232, 12);
+    g.setDepth(20);
+    carta.marcoSeleccion = g;
+
+    carta.elementosFrente.forEach(el => el.setDepth(21));
+  }
+
+  quitarMarcoSeleccion(carta) {
+    if (!carta.marcoSeleccion) return;
+    carta.marcoSeleccion.destroy();
+    carta.marcoSeleccion = null;
+  }
+
+  limpiarSeleccionActual() {
+    this.cartasSeleccionadas.forEach(carta => this.quitarMarcoSeleccion(carta));
+    this.cartasSeleccionadas = [];
   }
 
   evaluarSeleccion() {
@@ -246,13 +287,15 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
       this.paresEncontrados++;
       a.emparejada = true;
       b.emparejada = true;
+      this.quitarMarcoSeleccion(a);
+      this.quitarMarcoSeleccion(b);
       this.marcarParCorrecto(a);
       this.marcarParCorrecto(b);
       this.actualizarHUD();
       this.mostrarFeedback(true, a.datos.explicacion);
 
       this.time.delayedCall(900, () => {
-        this.cartasSeleccionadas = [];
+        this.limpiarSeleccionActual();
         this.bloqueado = false;
         this.verificarFinNivel();
       });
@@ -270,9 +313,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
     }
 
     this.time.delayedCall(1100, () => {
-      this.voltearCarta(a, false);
-      this.voltearCarta(b, false);
-      this.cartasSeleccionadas = [];
+      this.limpiarSeleccionActual();
       this.bloqueado = false;
     });
   }
@@ -280,6 +321,11 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
   marcarParCorrecto(carta) {
     carta.img.disableInteractive();
     carta.img.setAlpha(0.82);
+
+    const marco = this.add.graphics();
+    marco.lineStyle(3, 0x2ecc71, 0.95);
+    marco.strokeRoundedRect(carta.img.x - 69, carta.img.y - 116, 138, 232, 12);
+    carta.elementosFrente.push(marco);
 
     const check = this.add.text(carta.img.x + 46, carta.img.y - 64, 'OK', {
       fontSize: '11px',
@@ -348,7 +394,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
     }).setOrigin(0.5).setDepth(42);
 
     const t2 = this.add.text(W / 2, H / 2 - 26,
-      'Haz clic en una carta de problema y luego en su solucion.\nSi el par es correcto, ambas quedan descubiertas.', {
+      'Primero se mostrarán todas las cartas.\nLuego elige un problema y su solución correspondiente.', {
         fontSize: '15px',
         fontFamily: 'Arial',
         color: '#ffffff',
@@ -381,6 +427,7 @@ export default class Nivel3_ProblemaSolucion extends Phaser.Scene {
 
     btnZona.on('pointerdown', () => {
       [overlay, panel, t1, t2, t3, btnBg, btnTxt, btnZona].forEach(e => e.destroy());
+      this.animarVolteoInicial();
     });
   }
 

@@ -5,6 +5,10 @@ export default class ResultadoFinal extends Phaser.Scene {
     super({ key: 'ResultadoFinal' });
   }
 
+  preload() {
+    this.load.image('logo_institucional', 'assets/escenarios/image.png');
+  }
+
   init(data) {
     this.puntaje = data.puntaje || 0;
     this.vidas = data.vidas || 0;
@@ -48,9 +52,11 @@ export default class ResultadoFinal extends Phaser.Scene {
     panel.lineStyle(2, Phaser.Display.Color.HexStringToColor(estado.color).color, 0.9);
     panel.strokeRoundedRect(W / 2 - 340, 30, 680, H - 60, 20);
 
+    this.add.image(W / 2, 58, 'logo_institucional').setDisplaySize(330, 51);
+
     // Título del nivel alcanzado
-    this.add.text(W / 2, 75, estado.titulo.toUpperCase(), {
-      fontSize: '34px', fontFamily: 'Georgia, serif',
+    this.add.text(W / 2, 112, estado.titulo.toUpperCase(), {
+      fontSize: '30px', fontFamily: 'Georgia, serif',
       color: estado.color, fontStyle: 'bold',
       stroke: '#000000', strokeThickness: 4
     }).setOrigin(0.5);
@@ -62,34 +68,34 @@ export default class ResultadoFinal extends Phaser.Scene {
     // Separador
     const sep = this.add.graphics();
     sep.lineStyle(1, 0x2ecc71, 0.3);
-    sep.lineBetween(W / 2 - 280, 105, W / 2 + 280, 105);
+    sep.lineBetween(W / 2 - 280, 138, W / 2 + 280, 138);
 
     // Puntaje grande
-    this.add.text(W / 2, 145, `${this.puntaje} puntos`, {
-      fontSize: '48px', fontFamily: 'Georgia, serif',
+    this.add.text(W / 2, 178, `${this.puntaje} puntos`, {
+      fontSize: '42px', fontFamily: 'Georgia, serif',
       color: '#ffffff', fontStyle: 'bold'
     }).setOrigin(0.5);
 
-    this.add.text(W / 2, 190, `${this.porcentaje}% del puntaje máximo`, {
+    this.add.text(W / 2, 216, `${this.porcentaje}% del puntaje máximo`, {
       fontSize: '16px', color: '#a8e6a3'
     }).setOrigin(0.5);
 
     // Barra de progreso
-    this.dibujarBarraProgreso(W / 2, 225, 500, 20, this.porcentaje / 100,
+    this.dibujarBarraProgreso(W / 2, 248, 500, 20, this.porcentaje / 100,
       Phaser.Display.Color.HexStringToColor(estado.color).color);
 
     // Stats
-    this.dibujarStats(W / 2, 290);
+    this.dibujarStats(W / 2, 305);
 
     // Nivel extra
     if (this.nivelExtraCompletado) {
-      this.add.text(W / 2, 340, '🎯 ¡Nivel extra completado! Puntaje duplicado', {
+      this.add.text(W / 2, 348, '🎯 ¡Nivel extra completado! Puntaje bonus aplicado', {
         fontSize: '14px', color: '#f1c40f', fontStyle: 'bold'
       }).setOrigin(0.5);
     }
 
     // Mensaje del estado
-    this.add.text(W / 2, 375, estado.mensaje, {
+    this.add.text(W / 2, 385, estado.mensaje, {
       fontSize: '15px', color: '#d4f5d4',
       align: 'center', wordWrap: { width: 560 }, lineSpacing: 6
     }).setOrigin(0.5);
@@ -97,19 +103,19 @@ export default class ResultadoFinal extends Phaser.Scene {
     // Separador
     const sep2 = this.add.graphics();
     sep2.lineStyle(1, 0x2ecc71, 0.2);
-    sep2.lineBetween(W / 2 - 280, 415, W / 2 + 280, 415);
+    sep2.lineBetween(W / 2 - 280, 425, W / 2 + 280, 425);
 
     // Botones
-    this.crearBoton(W / 2 - 130, 460, '🔄  JUGAR DE NUEVO', 0x27ae60, 0x1e8449, () => {
+    this.crearBoton(W / 2 - 130, 470, '🔄  JUGAR DE NUEVO', 0x27ae60, 0x1e8449, () => {
       this.scene.start('Nivel1_Oceano', { puntaje: 0, vidas: 3, indiceVerde: 0 });
     });
 
-    this.crearBoton(W / 2 + 130, 460, '🏠  MENÚ PRINCIPAL', 0x1a5276, 0x154360, () => {
+    this.crearBoton(W / 2 + 130, 470, '🏠  MENÚ PRINCIPAL', 0x1a5276, 0x154360, () => {
       this.scene.start('MenuPrincipal');
     });
 
     // Compartir puntaje (decorativo)
-    this.add.text(W / 2, 510, `🌿 Campus Verde: Misión Green University`, {
+    this.add.text(W / 2, 522, `🌿 Campus Verde: Misión Green University`, {
       fontSize: '12px', color: '#4a7a4a', fontStyle: 'italic'
     }).setOrigin(0.5);
   }
