@@ -35,14 +35,14 @@ export default class PantallaDecision extends Phaser.Scene {
     }).setOrigin(0.5);
 
     this.add.text(W / 2, H / 2 - 55,
-      '¿Quieres intentar el nivel extra?\nSi encuentras y clasificas 5 objetos a tiempo,\n¡tu puntaje se DUPLICA!',
+      '¿Quieres intentar el reto opcional?\nArrastra los escudos al departamento correcto en 40 segundos.\nCada acierto suma bonus y cada error resta 3 segundos.',
       {
-        fontSize: '16px', color: '#d4f5d4',
+        fontSize: '15px', color: '#d4f5d4',
         align: 'center', lineSpacing: 8
       }).setOrigin(0.5);
 
     this.add.text(W / 2, H / 2 + 20,
-      'Si fallas, conservas tu puntaje actual.', {
+      'Si el tiempo termina, conservas el bonus que hayas ganado.', {
         fontSize: '13px', color: '#a8e6a3', fontStyle: 'italic'
       }).setOrigin(0.5);
 

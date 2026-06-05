@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ciencias_exactas",
+    "nombre": "Ciencias Exactas",
+    "sprite": "ciencias_exactas",
+    "puntos": 15
+  },
+  {
+    "id": "ciencias_computacion",
+    "nombre": "Ciencias de la Computacion",
+    "sprite": "ciencias_computacion",
+    "puntos": 15
+  },
+  {
+    "id": "energia_mecanica",
+    "nombre": "Energia y Mecanica",
+    "sprite": "energia_mecanica",
+    "puntos": 15
+  },
+  {
+    "id": "tierra_construccion",
+    "nombre": "Tierra y Construccion",
+    "sprite": "tierra_construccion",
+    "puntos": 15
+  },
+  {
+    "id": "vida_agricultura",
+    "nombre": "Vida y Agricultura",
+    "sprite": "vida_agricultura",
+    "puntos": 15
+  },
+  {
+    "id": "economicas_comercio",
+    "nombre": "Economicas y Comercio",
+    "sprite": "economicas_comercio",
+    "puntos": 15
+  },
+  {
+    "id": "humanas_sociales",
+    "nombre": "Humanas y Sociales",
+    "sprite": "humanas_sociales",
+    "puntos": 15
+  },
+  {
+    "id": "seguridad_defensa",
+    "nombre": "Seguridad y Defensa",
+    "sprite": "seguridad_defensa",
+    "puntos": 15
+  },
+  {
+    "id": "electrica_telecomunicaciones",
+    "nombre": "Electrica y Telecom.",
+    "sprite": "electrica_telecomunicaciones",
+    "puntos": 15
+  },
+  {
+    "id": "ciencias_medicas",
+    "nombre": "Ciencias Medicas",
+    "sprite": "ciencias_medicas",
+    "puntos": 15
+  }
+]

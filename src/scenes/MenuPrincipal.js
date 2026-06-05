@@ -4,9 +4,7 @@ export default class MenuPrincipal extends Phaser.Scene {
   }
 
   preload() {
-    // Cuando tengas assets reales, cárgalos aquí así:
-    // this.load.image('fondo_menu', 'assets/escenarios/parque_fondo.png');
-    // this.load.image('icono_hoja', 'assets/ui/icono_hoja.png');
+    this.load.image('logo_institucional', 'assets/escenarios/image.png');
   }
 
   create() {
@@ -28,6 +26,8 @@ export default class MenuPrincipal extends Phaser.Scene {
         Phaser.Math.Between(40, 120)
       );
     }
+
+    this.dibujarLogoInstitucional(W);
 
     // --- PANEL CENTRAL ---
     const panel = this.add.graphics();
@@ -103,6 +103,10 @@ export default class MenuPrincipal extends Phaser.Scene {
     });
   }
 
+  dibujarLogoInstitucional(W) {
+    this.add.image(W / 2, 42, 'logo_institucional').setDisplaySize(360, 55);
+  }
+
   crearBoton(x, y, texto, colorBase, colorHover, callback) {
     const ancho = 260;
     const alto = 44;
@@ -155,17 +159,20 @@ export default class MenuPrincipal extends Phaser.Scene {
     overlay.fillStyle(0x000000, 0.75);
     overlay.fillRect(0, 0, W, H);
     overlay.setInteractive(); // bloquea clics al fondo
+    const elementosModal = [overlay];
 
     const panel = this.add.graphics();
     panel.fillStyle(0x0d2b0d, 1);
     panel.fillRoundedRect(W / 2 - 300, H / 2 - 210, 600, 420, 16);
     panel.lineStyle(2, 0x2ecc71, 0.8);
     panel.strokeRoundedRect(W / 2 - 300, H / 2 - 210, 600, 420, 16);
+    elementosModal.push(panel);
 
-    this.add.text(W / 2, H / 2 - 175, '📖 INSTRUCCIONES', {
+    const titulo = this.add.text(W / 2, H / 2 - 175, '📖 INSTRUCCIONES', {
       fontSize: '22px', fontFamily: 'Georgia, serif',
       color: '#2ecc71', fontStyle: 'bold'
     }).setOrigin(0.5);
+    elementosModal.push(titulo);
 
     const instrucciones = [
       '🌿 Nivel 1 — Parque y Océano',
@@ -184,14 +191,15 @@ export default class MenuPrincipal extends Phaser.Scene {
     ];
 
     instrucciones.forEach((linea, i) => {
-      this.add.text(W / 2 - 250, H / 2 - 135 + i * 22, linea, {
+      const texto = this.add.text(W / 2 - 250, H / 2 - 135 + i * 22, linea, {
         fontSize: '13px', fontFamily: 'Arial, sans-serif',
         color: linea.startsWith('   ') ? '#a8e6a3' : '#ffffff'
       });
+      elementosModal.push(texto);
     });
 
     // Botón cerrar
-    this.crearBotonCerrar(W / 2, H / 2 + 175, [overlay, panel], true);
+    this.crearBotonCerrar(W / 2, H / 2 + 175, elementosModal);
   }
 
   mostrarCreditos() {
@@ -202,41 +210,45 @@ export default class MenuPrincipal extends Phaser.Scene {
     overlay.fillStyle(0x000000, 0.75);
     overlay.fillRect(0, 0, W, H);
     overlay.setInteractive();
+    const elementosModal = [overlay];
 
     const panel = this.add.graphics();
     panel.fillStyle(0x0d2b0d, 1);
     panel.fillRoundedRect(W / 2 - 250, H / 2 - 160, 500, 320, 16);
     panel.lineStyle(2, 0x2ecc71, 0.8);
     panel.strokeRoundedRect(W / 2 - 250, H / 2 - 160, 500, 320, 16);
+    elementosModal.push(panel);
 
-    this.add.text(W / 2, H / 2 - 130, '🏆 CRÉDITOS', {
+    const titulo = this.add.text(W / 2, H / 2 - 130, '🏆 CRÉDITOS', {
       fontSize: '22px', fontFamily: 'Georgia, serif',
       color: '#2ecc71', fontStyle: 'bold'
     }).setOrigin(0.5);
+    elementosModal.push(titulo);
 
     const creditos = [
       'Campus Verde: Misión Green University',
       '',
-      'Diseño y concepto: [Tu nombre]',
+      'Diseño y concepto: Stefany Díaz',
       'Desarrollo: Phaser 3 + Vite',
       '',
       'Un proyecto de educación ambiental',
       'para transformar universidades',
-      'en espacios sostenibles.'
+      'en espacios sostenibles y concientizar.'
     ];
 
     creditos.forEach((linea, i) => {
-      this.add.text(W / 2, H / 2 - 75 + i * 24, linea, {
+      const texto = this.add.text(W / 2, H / 2 - 75 + i * 24, linea, {
         fontSize: '14px', fontFamily: 'Arial, sans-serif',
         color: i === 0 ? '#2ecc71' : '#d4f5d4',
         fontStyle: i === 0 ? 'bold' : 'normal'
       }).setOrigin(0.5);
+      elementosModal.push(texto);
     });
 
-    this.crearBotonCerrar(W / 2, H / 2 + 135, [overlay, panel], true);
+    this.crearBotonCerrar(W / 2, H / 2 + 135, elementosModal);
   }
 
-  crearBotonCerrar(x, y, elementosExtra = [], destruirTextos = false) {
+  crearBotonCerrar(x, y, elementosModal = []) {
     const bg = this.add.graphics();
     bg.fillStyle(0x7f1d1d, 1);
     bg.fillRoundedRect(x - 70, y - 18, 140, 36, 8);
@@ -247,14 +259,10 @@ export default class MenuPrincipal extends Phaser.Scene {
     }).setOrigin(0.5);
 
     const zona = this.add.zone(x, y, 140, 36).setInteractive({ useHandCursor: true });
+    elementosModal.push(bg, label, zona);
+
     zona.on('pointerdown', () => {
-      // Destruir todos los elementos del popup
-      elementosExtra.forEach(e => e.destroy());
-      bg.destroy();
-      label.destroy();
-      zona.destroy();
-      // Si hay textos adicionales en escena (del popup), limpiarlos
-      // En una implementación más robusta, se guardarían en un grupo
+      elementosModal.forEach(e => e.destroy());
     });
   }
 }
