@@ -101,7 +101,7 @@ export default class ResultadoFinal extends Phaser.Scene {
 
     // Botones
     this.crearBoton(W / 2 - 130, 460, '🔄  JUGAR DE NUEVO', 0x27ae60, 0x1e8449, () => {
-      this.scene.start('Nivel1_Parque', { puntaje: 0, vidas: 3, indiceVerde: 0 });
+      this.scene.start('Nivel1_Oceano', { puntaje: 0, vidas: 3, indiceVerde: 0 });
     });
 
     this.crearBoton(W / 2 + 130, 460, '🏠  MENÚ PRINCIPAL', 0x1a5276, 0x154360, () => {

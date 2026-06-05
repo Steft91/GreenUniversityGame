@@ -66,11 +66,6 @@ export default class Nivel1_Parque extends Phaser.Scene {
     // Filtrar solo los residuos que tienen sprite disponible
     const spritesDisponibles = ['botella_plastica','papel','cascara','lata','vidrio','bateria'];
     this.residuosActivos = residuosData.filter(r => spritesDisponibles.includes(r.sprite));
-    // Ajuste: cascara_banano → cascara en el JSON sprite
-    this.residuosActivos = this.residuosActivos.map(r => ({
-      ...r,
-      sprite: r.sprite === 'cascara_banano' ? 'cascara' : r.sprite
-    }));
 
     this.residuosPendientes = this.residuosActivos.length;
     this.crearResiduos();
@@ -146,7 +141,7 @@ export default class Nivel1_Parque extends Phaser.Scene {
     // Definición de basureros con etiqueta y color
     this.basurerosConfig = [
       { id: 'basurero_organico',    label: 'Orgánico',       color: 0x27ae60, cat: 'organico'    },
-      { id: 'basurero_plastico',    label: 'Plástico',       color: 0xe74c3c, cat: 'plastico'    },
+      { id: 'basurero_plastico',    label: 'Reciclables',    color: 0xe74c3c, cat: 'plastico'    },
       { id: 'basurero_papel_carton',label: 'Papel/Cartón',   color: 0x3498db, cat: 'papel_carton'},
       { id: 'basurero_vidrio',      label: 'Vidrio',         color: 0x1abc9c, cat: 'vidrio'      },
       { id: 'basurero_peligroso',   label: 'Peligroso',      color: 0xf39c12, cat: 'peligroso'   },
@@ -534,7 +529,7 @@ export default class Nivel1_Parque extends Phaser.Scene {
       }).setOrigin(0.5).setDepth(32);
 
     const msgSig = exito
-      ? '¡Ahora toca limpiar el océano!'
+      ? '¡Excelente! Ahora sigues con energías renovables.'
       : 'El parque necesita más ayuda. ¿Lo intentas de nuevo?';
 
     this.add.text(W / 2, H / 2 + 15, msgSig, {
@@ -544,8 +539,8 @@ export default class Nivel1_Parque extends Phaser.Scene {
 
     // Botones
     if (exito) {
-      this.crearBotonFin(W / 2, H / 2 + 68, '🌊 Ir al Océano', 0x1a6b8a, () => {
-        this.scene.start('Nivel1_Oceano', {
+      this.crearBotonFin(W / 2, H / 2 + 68, 'Ir a Energías', 0x1a6b8a, () => {
+        this.scene.start('Nivel2_EnergiasRenovables', {
           puntaje: this.puntaje,
           vidas: this.vidas,
           indiceVerde: this.indiceVerde

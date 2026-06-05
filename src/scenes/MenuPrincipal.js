@@ -76,7 +76,7 @@ export default class MenuPrincipal extends Phaser.Scene {
 
     // --- BOTONES ---
     this.crearBoton(W / 2, H / 2 + 65, '🌿  JUGAR', 0x27ae60, 0x1e8449, () => {
-      this.scene.start('Nivel1_Parque', { puntaje: 0, vidas: 3, indiceVerde: 0 });
+      this.scene.start('Nivel1_Oceano', { puntaje: 0, vidas: 3, indiceVerde: 0 });
     });
 
     this.crearBoton(W / 2, H / 2 + 125, '📖  INSTRUCCIONES', 0x1a5276, 0x154360, () => {
@@ -175,7 +175,7 @@ export default class MenuPrincipal extends Phaser.Scene {
     elementosModal.push(titulo);
 
     const instrucciones = [
-      '🌿 Nivel 1 — Parque y Océano',
+      '🌿 Nivel 1 — Océano y Parque',
       '   Arrastra cada residuo al basurero correcto.',
       '   Tienes 3 vidas. Cada error te quita 1.',
       '',

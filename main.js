@@ -23,8 +23,8 @@ const config = {
   },
   scene: [
     MenuPrincipal,
-    Nivel1_Parque,
     Nivel1_Oceano,
+    Nivel1_Parque,
     Nivel2_EnergiasRenovables,
     Nivel3_ProblemaSolucion,
     PantallaDecision,

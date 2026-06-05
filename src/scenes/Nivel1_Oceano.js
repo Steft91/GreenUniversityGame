@@ -23,8 +23,8 @@ export default class Nivel1_Oceano extends Phaser.Scene {
     this.load.image('oceano_fondo', 'assets/escenarios/oceano_fondo.png');
 
     const spritesOceano = [
-      'red_pesca', 'botella_plastica', 'bolsa_plastica',
-      'anillas_plasticas', 'lata', 'vidrio'
+      'red_pesca', 'botella_plastica', 'anillas_plasticas',
+      'lata', 'vidrio'
     ];
     spritesOceano.forEach(id => {
       this.load.image(id, `assets/residuos/${id}.png`);
@@ -64,8 +64,8 @@ export default class Nivel1_Oceano extends Phaser.Scene {
     // ── RESIDUOS EN EL OCÉANO ────────────────────────────────────────────────
     // Filtrar solo los residuos que tienen sprite disponible
     const spritesDisponibles = [
-      'red_pesca', 'botella_plastica', 'bolsa_plastica',
-      'anillas_plasticas', 'lata', 'vidrio'
+      'red_pesca', 'botella_plastica', 'anillas_plasticas',
+      'lata', 'vidrio'
     ];
     this.residuosActivos = residuosData.filter(r => spritesDisponibles.includes(r.sprite));
 
@@ -142,7 +142,7 @@ export default class Nivel1_Oceano extends Phaser.Scene {
 
     // Definición de basureros con etiqueta y color
     this.basurerosConfig = [
-      { id: 'basurero_plastico',    label: 'Plástico',       color: 0xe74c3c, cat: 'plastico'    },
+      { id: 'basurero_plastico',    label: 'Reciclables',     color: 0xe74c3c, cat: 'plastico'    },
       { id: 'basurero_vidrio',      label: 'Vidrio',         color: 0x1abc9c, cat: 'vidrio'      },
       { id: 'basurero_peligroso',   label: 'No reciclable',  color: 0x95a5a6, cat: 'no_reciclable' },
     ];
@@ -538,7 +538,7 @@ export default class Nivel1_Oceano extends Phaser.Scene {
       }).setOrigin(0.5).setDepth(32);
 
     const msgSig = exito
-      ? '¡Excelente! Ahora sigues con energías renovables.'
+      ? '¡Excelente! Ahora toca limpiar el parque.'
       : 'El océano necesita más ayuda. ¿Lo intentas de nuevo?';
 
     this.add.text(W / 2, H / 2 + 15, msgSig, {
@@ -548,8 +548,8 @@ export default class Nivel1_Oceano extends Phaser.Scene {
 
     // Botones
     if (exito) {
-      this.crearBotonFin(W / 2, H / 2 + 68, 'Ir a Energías', 0x1a6b8a, () => {
-        this.scene.start('Nivel2_EnergiasRenovables', {
+      this.crearBotonFin(W / 2, H / 2 + 68, 'Ir al Parque', 0x27ae60, () => {
+        this.scene.start('Nivel1_Parque', {
           puntaje: this.puntaje,
           vidas: this.vidas,
           indiceVerde: this.indiceVerde

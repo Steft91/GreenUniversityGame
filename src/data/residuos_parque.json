@@ -1,12 +1,12 @@
 [
   {
     "id": "botella_plastica",
-    "nombre": "Botella plástica",
+    "nombre": "Botella de plástico",
     "sprite": "botella_plastica",
     "categoriaCorrecta": "plastico",
     "puntos": 10,
     "feedbackCorrecto": "¡Correcto! Las botellas plásticas van al contenedor de reciclables.",
-    "feedbackError": "Las botellas plásticas deben ir en el contenedor de plástico/reciclable."
+    "feedbackError": "Las botellas de plástico deben ir en el contenedor de reciclables."
   },
   {
     "id": "papel",
@@ -18,13 +18,13 @@
     "feedbackError": "El papel va en el contenedor de papel y cartón."
   },
   {
-    "id": "cascara_banano",
-    "nombre": "Cáscara de banano",
-    "sprite": "cascara_banano",
+    "id": "cascara_huevo",
+    "nombre": "Cáscara de huevo",
+    "sprite": "cascara",
     "categoriaCorrecta": "organico",
     "puntos": 10,
-    "feedbackCorrecto": "¡Correcto! Los restos orgánicos pueden convertirse en compost.",
-    "feedbackError": "Las cáscaras de fruta son residuos orgánicos."
+    "feedbackCorrecto": "¡Correcto! Las cáscaras de huevo son residuos orgánicos y pueden convertirse en compost.",
+    "feedbackError": "La cáscara de huevo va en el contenedor orgánico."
   },
   {
     "id": "lata",
@@ -46,7 +46,7 @@
   },
   {
     "id": "bateria",
-    "nombre": "Batería usada",
+    "nombre": "Baterías usadas",
     "sprite": "bateria",
     "categoriaCorrecta": "peligroso",
     "puntos": 15,
