@@ -99,12 +99,12 @@ export default class Nivel2_EnergiasRenovables extends Phaser.Scene {
 
   dibujarTecnologias() {
     const H = this.scale.height;
-    const posicionesX = [65, 190, 315, 440, 565, 690, 815];
+    const posicionesX = [120, 285, 450, 615, 780];
 
     this.tecnologiasConfig = energiasData.map((item, i) => {
       const x = posicionesX[i];
       const y = H - 82;
-      const zona = new Phaser.Geom.Rectangle(x - 55, y - 62, 110, 116);
+      const zona = new Phaser.Geom.Rectangle(x - 65, y - 70, 130, 128);
 
       const marco = this.add.graphics();
       marco.fillStyle(0x0b2d42, 0.62);
@@ -112,11 +112,11 @@ export default class Nivel2_EnergiasRenovables extends Phaser.Scene {
       marco.lineStyle(1.5, 0xffffff, 0.35);
       marco.strokeRoundedRect(zona.x, zona.y, zona.width, zona.height, 10);
 
-      const img = this.add.image(x, y - 18, item.tecnologia.sprite);
+      const img = this.add.image(x, y - 22, item.tecnologia.sprite);
       const tam = this.obtenerTamanoTecnologia(item.tecnologia.sprite);
       img.setDisplaySize(tam.w, tam.h);
 
-      this.add.text(x, y + 42, item.tecnologia.nombre, {
+      this.add.text(x, y + 44, item.tecnologia.nombre, {
         fontSize: '10px',
         fontFamily: 'Arial',
         color: '#ffffff',
@@ -129,7 +129,7 @@ export default class Nivel2_EnergiasRenovables extends Phaser.Scene {
         nombre: item.tecnologia.nombre,
         zona,
         cx: x,
-        cy: y - 18,
+        cy: y - 22,
         marco
       };
     });
@@ -137,13 +137,11 @@ export default class Nivel2_EnergiasRenovables extends Phaser.Scene {
 
   obtenerTamanoTecnologia(sprite) {
     const tamanos = {
-      panel_solar: { w: 58, h: 64 },
-      aerogenerador: { w: 58, h: 68 },
-      represa: { w: 72, h: 56 },
-      planta_biomasa: { w: 76, h: 52 },
-      planta_geotermica: { w: 76, h: 52 },
-      sistema_mareomotriz: { w: 76, h: 52 },
-      sistema_undimotriz: { w: 76, h: 52 },
+      panel_solar: { w: 72, h: 80 },
+      aerogenerador: { w: 72, h: 84 },
+      represa: { w: 92, h: 72 },
+      planta_biomasa: { w: 96, h: 66 },
+      planta_geotermica: { w: 96, h: 66 },
     };
     return tamanos[sprite] ?? { w: 68, h: 58 };
   }
@@ -230,7 +228,7 @@ export default class Nivel2_EnergiasRenovables extends Phaser.Scene {
   animarCaida(sprite) {
     const limiteY = this.scale.height - 170;
     const distancia = Math.max(40, limiteY - sprite.y);
-    const duracion = distancia * 22;
+    const duracion = distancia * 14;
 
     this.tweens.add({
       targets: sprite,
@@ -454,7 +452,7 @@ export default class Nivel2_EnergiasRenovables extends Phaser.Scene {
     }).setOrigin(0.5).setDepth(32);
 
     const t2 = this.add.text(W / 2, H / 2 - 30,
-      'Arrastra cada recurso natural hacia la tecnologia que lo aprovecha.\nSi un recurso llega abajo sin clasificar, pierdes una vida.', {
+      'Arrastra cada recurso natural hacia la tecnologia que lo aprovecha.\nCompleta las 5 energias para avanzar.', {
         fontSize: '15px',
         fontFamily: 'Arial',
         color: '#f8f9fa',

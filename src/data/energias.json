@@ -73,35 +73,5 @@
     },
     "puntos": 20,
     "explicacion": "La energía geotérmica usa el calor interno de la Tierra para generar electricidad."
-  },
-  {
-    "id": "mareomotriz",
-    "recurso": {
-      "id": "marea",
-      "nombre": "Marea",
-      "sprite": "marea"
-    },
-    "tecnologia": {
-      "id": "sistema_mareomotriz",
-      "nombre": "Sistema mareomotriz",
-      "sprite": "sistema_mareomotriz"
-    },
-    "puntos": 20,
-    "explicacion": "La energía mareomotriz aprovecha el movimiento de las mareas para producir electricidad."
-  },
-  {
-    "id": "undimotriz",
-    "recurso": {
-      "id": "olas",
-      "nombre": "Olas",
-      "sprite": "olas"
-    },
-    "tecnologia": {
-      "id": "sistema_undimotriz",
-      "nombre": "Sistema undimotriz",
-      "sprite": "sistema_undimotriz"
-    },
-    "puntos": 20,
-    "explicacion": "La energía undimotriz aprovecha el movimiento de las olas para generar electricidad."
   }
 ]
